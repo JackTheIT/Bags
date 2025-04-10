@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Finds | Premium Bags at Affordable Prices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #f27474;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #f27474;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f27474;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e25656;
+            transform: translateY(-2px);
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: 500;
+        }
+        
+        .how-it-works {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .step {
+            width: 30%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #f27474;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .step p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .benefits {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .benefit {
+            width: 48%;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit:nth-child(odd) {
+            margin-right: 4%;
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(242, 116, 116, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #f27474;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .benefit-text h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .benefit-text p {
+            color: #666;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .cta p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            width: 30%;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #f27474;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .step {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .benefit {
+                width: 100%;
+            }
+            
+            .footer-column {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Elegant <span>Finds</span></a>
+                <div class="nav-links">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Designer Bags at Unbeatable Prices</h1>
+                    <p>We source premium bags directly from outlets and bring them to you at affordable prices without compromising on quality or style.</p>
+                    <a href="#contact" class="btn">Shop Now</a>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <img src="/api/placeholder/500/400" alt="Luxury Bags Collection">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our simple business model allows us to offer you premium bags at prices you'll love.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>We Source</h3>
+                    <p>We carefully select and purchase high-quality designer bags directly from authorized outlets.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Verify</h3>
+                    <p>Each bag undergoes thorough authentication and quality checking to ensure only the best reaches you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Save</h3>
+                    <p>You get authentic designer bags at prices significantly lower than retail without sacrificing quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>We pride ourselves on offering a premium experience with significant savings.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">
+                        <h3>100% Authentic</h3>
+                        <p>All our bags are guaranteed authentic from authorized outlets.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">$</div>
+                    <div class="benefit-text">
+                        <h3>Significant Savings</h3>
+                        <p>Enjoy up to 70% off regular retail prices on luxury bags.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">★</div>
+                    <div class="benefit-text">
+                        <h3>Quality Selection</h3>
+                        <p>We hand-pick each item to ensure it meets our high standards.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">♺</div>
+                    <div class="benefit-text">
+                        <h3>Sustainable Shopping</h3>
+                        <p>Our business model helps reduce waste in the fashion industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Bag?</h2>
+            <p>Browse our collection or contact us to inquire about specific styles.</p>
+            <a href="#" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elegant Finds</h3>
+                    <p>Premium bags at prices you'll love. We source directly from outlets to bring you the best deals.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@elegantfinds.com">info@elegantfinds.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>123 Fashion Street, Style City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Elegant Finds. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
