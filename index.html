@@ -15,7 +15,7 @@
         body {
             color: #333;
             line-height: 1.6;
-            background-color: #f9f9f9;
+            background-color: #f8f4f1;
         }
         
         .container {
@@ -48,7 +48,7 @@
         }
         
         .logo span {
-            color: #f27474;
+            color: #d48166;
         }
         
         .nav-links {
@@ -64,21 +64,38 @@
         }
         
         .nav-links a:hover {
-            color: #f27474;
+            color: #d48166;
         }
         
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            background-color: #fff;
+            background-color: #f8e9dd;
             margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1920/1080') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 0;
         }
         
         .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            padding: 60px 0;
         }
         
         .hero-text {
@@ -102,7 +119,7 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: #f27474;
+            background-color: #d48166;
             color: #fff;
             border-radius: 4px;
             text-decoration: none;
@@ -111,49 +128,109 @@
         }
         
         .btn:hover {
-            background-color: #e25656;
+            background-color: #c06e53;
             transform: translateY(-2px);
         }
         
         .hero-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
         
-        .image-placeholder {
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(212, 129, 102, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .bag-showcase {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .featured-slider {
+            display: flex;
             width: 100%;
             max-width: 500px;
             height: 400px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-weight: 500;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .featured-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .how-it-works {
             padding: 100px 0;
-            background-color: #f9f9f9;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(212, 129, 102, 0.05);
+            border-radius: 50%;
+        }
+        
+        .how-it-works::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(212, 129, 102, 0.05);
+            border-radius: 50%;
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
         }
         
         .section-title h2 {
             font-size: 36px;
             color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #d48166;
         }
         
         .section-title p {
             color: #666;
             font-size: 18px;
             max-width: 600px;
-            margin: 0 auto;
-            margin-top: 15px;
+            margin: 25px auto 0;
         }
         
         .process-steps {
@@ -161,16 +238,31 @@
             justify-content: space-between;
             flex-wrap: wrap;
             margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-steps::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 15%;
+            width: 70%;
+            height: 2px;
+            background-color: #eee;
+            z-index: -1;
         }
         
         .step {
             width: 30%;
             background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             text-align: center;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
         
         .step:hover {
@@ -181,7 +273,7 @@
         .step-number {
             width: 50px;
             height: 50px;
-            background-color: #f27474;
+            background-color: #d48166;
             color: #fff;
             border-radius: 50%;
             display: flex;
@@ -201,16 +293,107 @@
             color: #666;
             font-size: 16px;
         }
+
+        .step-image {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .collection {
+            padding: 100px 0;
+            background-color: #f8f4f1;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .collection-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .collection-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-item:hover .collection-image img {
+            transform: scale(1.1);
+        }
+
+        .collection-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .collection-info h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .collection-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #d48166;
+            font-size: 20px;
+        }
         
         .benefits {
             padding: 100px 0;
             background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(212, 129, 102, 0.05);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
         }
         
         .benefits-grid {
             display: flex;
             flex-wrap: wrap;
             margin-top: 40px;
+            position: relative;
+            z-index: 1;
         }
         
         .benefit {
@@ -218,6 +401,15 @@
             margin-bottom: 40px;
             display: flex;
             align-items: flex-start;
+            background-color: #f8f4f1;
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit:hover {
+            background-color: #f3e9e3;
+            transform: translateY(-5px);
         }
         
         .benefit:nth-child(odd) {
@@ -227,13 +419,13 @@
         .benefit-icon {
             width: 60px;
             height: 60px;
-            background-color: rgba(242, 116, 116, 0.1);
+            background-color: rgba(212, 129, 102, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
-            color: #f27474;
+            color: #d48166;
             font-size: 24px;
             font-weight: 700;
         }
@@ -247,10 +439,100 @@
             color: #666;
         }
         
+        .testimonials {
+            padding: 100px 0;
+            background-color: #f8e9dd;
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 70px;
+            color: rgba(212, 129, 102, 0.2);
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
         .cta {
             padding: 100px 0;
-            background-color: #f9f9f9;
+            background-color: #f8f4f1;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 129, 102, 0.05) 0%, rgba(255,255,255,0) 70%);
+            top: -300px;
+            left: -300px;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 129, 102, 0.05) 0%, rgba(255,255,255,0) 70%);
+            bottom: -300px;
+            right: -300px;
         }
         
         .cta h2 {
@@ -265,11 +547,61 @@
             max-width: 600px;
             margin: 0 auto 30px;
         }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto 0;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+            text-align: left;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #d48166;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 129, 102, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
         
         footer {
             background-color: #333;
             color: #fff;
-            padding: 50px 0;
+            padding: 80px 0 50px;
         }
         
         .footer-content {
@@ -284,8 +616,19 @@
         
         .footer-column h3 {
             font-size: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #fff;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #d48166;
         }
         
         .footer-links {
@@ -293,36 +636,155 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
             color: #ccc;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .footer-links a:hover {
-            color: #f27474;
+            color: #d48166;
+            transform: translateX(5px);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+        }
+
+        .newsletter-btn {
+            background-color: #d48166;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #c06e53;
         }
         
         .copyright {
-            margin-top: 40px;
+            margin-top: 60px;
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #ccc;
         }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #d48166;
+            transform: translateY(-3px);
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .process-steps::after {
+                display: none;
+            }
+            
+            .collection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         
         @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: #fff;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: all 0.5s ease;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                margin: 0 0 20px;
+                font-size: 18px;
+            }
+            
             .hero-content {
                 flex-direction: column;
+                padding: 40px 0;
             }
             
             .hero-text {
                 padding-right: 0;
                 margin-bottom: 40px;
                 text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .featured-slider {
+                max-width: 100%;
             }
             
             .step {
@@ -332,11 +794,34 @@
             
             .benefit {
                 width: 100%;
+                margin-right: 0;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
             }
             
             .footer-column {
                 width: 100%;
-                margin-bottom: 30px;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .testimonial {
+                padding: 30px 20px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -346,9 +831,16 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">Elegant <span>Finds</span></a>
-                <div class="nav-links">
+                <div class="menu-toggle" id="menuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="nav-links" id="navLinks">
                     <a href="#how-it-works">How It Works</a>
+                    <a href="#collection">Collection</a>
                     <a href="#benefits">Benefits</a>
+                    <a href="#testimonials">Testimonials</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -361,11 +853,13 @@
                 <div class="hero-text">
                     <h1>Designer Bags at Unbeatable Prices</h1>
                     <p>We source premium bags directly from outlets and bring them to you at affordable prices without compromising on quality or style.</p>
-                    <a href="#contact" class="btn">Shop Now</a>
+                    <a href="#collection" class="btn">Shop Now</a>
                 </div>
                 <div class="hero-image">
-                    <div class="image-placeholder">
-                        <img src="/api/placeholder/500/400" alt="Luxury Bags Collection">
+                    <div class="bag-showcase">
+                        <div class="featured-slider">
+                            <img src="/api/placeholder/500/400" alt="Luxury Designer Bag">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -382,21 +876,101 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>We Source</h3>
+                    <div class="step-image">
+                        <img src="/api/placeholder/120/120" alt="Sourcing Designer Bags">
+                    </div>
                     <p>We carefully select and purchase high-quality designer bags directly from authorized outlets.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>We Verify</h3>
+                    <div class="step-image">
+                        <img src="/api/placeholder/120/120" alt="Bag Authentication Process">
+                    </div>
                     <p>Each bag undergoes thorough authentication and quality checking to ensure only the best reaches you.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>You Save</h3>
+                    <div class="step-image">
+                        <img src="/api/placeholder/120/120" alt="Customer Savings">
+                    </div>
                     <p>You get authentic designer bags at prices significantly lower than retail without sacrificing quality.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- <section class="collection" id="collection">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Collection</h2>
+                <p>Browse our latest arrivals of premium designer bags.</p>
+            </div>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Tote Bag">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Luxury Tote Bag</h3>
+                        <p>Elegant and spacious tote bag for everyday use</p>
+                        <div class="price">$299</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Crossbody Bag">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Designer Crossbody</h3>
+                        <p>Compact and stylish crossbody bag for any occasion</p>
+                        <div class="price">$249</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Shoulder Bag">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Premium Shoulder Bag</h3>
+                        <p>Sophisticated shoulder bag with adjustable strap</p>
+                        <div class="price">$329</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Clutch Bag">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Evening Clutch</h3>
+                        <p>Elegant clutch bag perfect for special occasions</p>
+                        <div class="price">$199</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Backpack">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Luxury Backpack</h3>
+                        <p>Stylish and functional designer backpack</p>
+                        <div class="price">$379</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="/api/placeholder/400/300" alt="Designer Travel Bag">
+                    </div>
+                    <div class="collection-info">
+                        <h3>Travel Weekender</h3>
+                        <p>Spacious designer weekender for your travels</p>
+                        <div class="price">$429</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <section class="benefits" id="benefits">
         <div class="container">
@@ -437,43 +1011,27 @@
         </div>
     </section>
 
-    <section class="cta" id="contact">
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2>Ready to Find Your Perfect Bag?</h2>
-            <p>Browse our collection or contact us to inquire about specific styles.</p>
-            <a href="#" class="btn">Contact Us Today</a>
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        I was skeptical at first, but the quality of the bag I received is amazing! It's genuinely authentic and I got it for less than half the retail price. The team at Elegant Finds was so helpful throughout the process.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/60/60" alt="Customer Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Elegant Finds</h3>
-                    <p>Premium bags at prices you'll love. We source directly from outlets to bring you the best deals.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:info@elegantfinds.com">info@elegantfinds.com</a></li>
-                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                        <li>123 Fashion Street, Style City</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Elegant Finds. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
